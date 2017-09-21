@@ -15,12 +15,8 @@ public class ContactDao implements IContactDao {
    *          : le contact à ajouter
    */
   @Override
-  public void creerContact(Contact c) throws ContactExistException {
-    if (!isContactExiste(c.getNom())) {
-      this.contacts.add(c);
-    } else {
-      throw new ContactExistException("Echec : Contact non présent dans la liste");
-    }
+  public void creerContact(Contact c) {
+    this.contacts.add(c);
   }
 
   /**

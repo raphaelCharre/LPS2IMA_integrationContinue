@@ -29,4 +29,11 @@ public class ContactServiceTest {
     cs.creerContact("kessab", "06040141212");
     cs.creerContact("kessab", "06040141212");
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void creerContact5() throws Exception {
+    ContactService cs = new ContactService();
+    // nom > 40 -> KO
+    cs.creerContact("01234567890123456789012345678901234567890", "06040141212");
+  }
 }

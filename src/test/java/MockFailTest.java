@@ -13,52 +13,49 @@ public class MockFailTest extends MockTest {
 
   @Test
   public void testCreerContactCasValide() throws Exception {
-    //Phase d'enregistrement des comportements
+    // Phase d'enregistrement des comportements
     String nom = "ContactOK";
     EasyMock.expect(dao.isContactExiste(nom)).andReturn(false);
 
     Capture<Contact> capture = EasyMock.newCapture();
     dao.creerContact(EasyMock.capture(capture));
-    //Fin de l'enregistrement
+    // Fin de l'enregistrement
     replayAll();
 
-    //Appel de la méthode
+    // Appel de la méthode
     service.creerContact(nom);
 
-    //Vérification
+    // Vérification
     verifyAll();
     Assert.assertEquals(nom, capture.getValue().getNom());
   }
 
   @Test(expected = ContactExistException.class)
   public void testCreerContactCasInvalide1() throws Exception {
-    //Phase d'enregistrement des comportements
+    // Phase d'enregistrement des comportements
     String nom = "ContactOK";
     EasyMock.expect(dao.isContactExiste(nom)).andReturn(true);
 
-    //Fin de l'enregistrement
+    // Fin de l'enregistrement
     replayAll();
 
-    //Appel de la méthode
+    // Appel de la méthode
     service.creerContact(nom);
 
-    //Vérification
+    // Vérification
     verifyAll();
   }
 
-  /* @Test
-    public void testSupprimerContactCasValide() throws Exception{
-        //Phase d'enregistrement des comportements
-        String nom = "ContactOK";
-        EasyMock.expect(dao.isContactExiste(nom)).andReturn(true);
-        //Fin de l'enregistrement
-        replayAll();
-
-        //Appel de la méthode
-        service.supprimerContact(nom);
-
-        //Vérification
-        verifyAll();
-    }*/
+  /*
+   * @Test public void testSupprimerContactCasValide() throws Exception { // Phase
+   * d'enregistrement des comportements String nom = "ContactOK";
+   * EasyMock.expect(dao.supprimerContact(nom)).andVoid();
+   * 
+   * replayAll();
+   * 
+   * service.supprimerContact(nom);
+   * 
+   * verifyAll(); }
+   */
 
 }
