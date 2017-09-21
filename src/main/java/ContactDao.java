@@ -10,8 +10,11 @@ public class ContactDao implements IContactDao {
 
   /**
    * Ajoute un contact à la liste.
-   * @param c : le contact à ajouter
+   * 
+   * @param c
+   *          : le contact à ajouter
    */
+  @Override
   public void creerContact(Contact c) throws ContactExistException {
     if (!isContactExiste(c.getNom())) {
       this.contacts.add(c);
@@ -22,18 +25,21 @@ public class ContactDao implements IContactDao {
 
   /**
    * Récupere un contact dans la liste.
-   * @param nom : Le nom du contact
+   * 
+   * @param nom
+   *          : Le nom du contact
    */
+  @Override
   public Contact recupererContact(String nom) {
     for (Contact contact : contacts) {
-      if (contact.getNom() == nom) {
+      if (contact.getNom().equals(nom)) {
         return contact;
       }
     }
     return null;
   }
 
-
+  @Override
   public boolean isContactExiste(String nom) {
     return recupererContact(nom) != null;
 
@@ -41,8 +47,11 @@ public class ContactDao implements IContactDao {
 
   /**
    * Supprime le contact de la liste.
-   * @param nom : Le nom du contact dans la liste.
+   * 
+   * @param nom
+   *          : Le nom du contact dans la liste.
    */
+  @Override
   public void supprimerContact(String nom) throws ContactExistException {
     Contact c = recupererContact(nom);
     if (c != null) {

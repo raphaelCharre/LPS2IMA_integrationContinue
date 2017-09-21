@@ -18,7 +18,7 @@ public class ContactService {
       throw new IllegalArgumentException("Erreur : nom incorrect");
     }
   }
-  
+
   void creerContact(String nom) throws Exception {
     creerContact(nom, null);
   }
