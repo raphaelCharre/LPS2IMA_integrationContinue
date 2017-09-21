@@ -1,8 +1,11 @@
 public class ContactExistException extends Exception {
-    ContactExistException(){
-        super();
-    }
-    ContactExistException(String e){
-        super(e);
-    }
+  private static final long serialVersionUID = 1L;
+
+  ContactExistException() {
+    super();
+  }
+  
+  ContactExistException(String e) {
+    super(e);
+  }
 }
