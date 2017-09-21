@@ -16,14 +16,14 @@ public class ContactServiceTest {
         cs.creerContact("bj", "06040141212");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void creerContact3() throws Exception {
         ContactService cs = new ContactService();
         //nom 3-40 car -> OK
         cs.creerContact("kessab", "06040141212");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = ContactExistException.class)
     public void creerContact4() throws Exception {
         ContactService cs = new ContactService();
         //nom en double -> KO

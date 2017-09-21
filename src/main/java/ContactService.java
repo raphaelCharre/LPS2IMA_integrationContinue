@@ -8,35 +8,17 @@ public class ContactService {
 
 
     void creerContact(String nom, String tel) throws Exception{
-        Contact c = null;
-        char[] nomTab = nom.toCharArray();
-        if(nomTab.length >= 3 && nomTab.length <= 40) {
-            if(dao.isContactExiste(nom)==false) {
-                c = new Contact(nom, tel);
-            }
-            else{
+        if(nom != null && nom.length() >= 3 && nom.length() <= 40) {
+            if(!dao.isContactExiste(nom)) {
+            	dao.creerContact(new Contact(nom, tel));
+            }else{
                 throw new ContactExistException("Erreur : contact existant");
             }
-        }
-        else{
+        }else{
             throw new IllegalArgumentException("Erreur : nom incorrect");
         }
-        dao.creerContact(c);
     }
     void creerContact(String nom) throws Exception{
-        Contact c = null;
-        char[] nomTab = nom.toCharArray();
-        if(nomTab.length >= 3 && nomTab.length <= 40) {
-            if(dao.isContactExiste(nom)==false) {
-                c = new Contact(nom);
-            }
-            else{
-                throw new ContactExistException("Erreur : contact existant");
-            }
-        }
-        else{
-            throw new IllegalArgumentException("Erreur : nom incorrect");
-        }
-        dao.creerContact(c);
+       creerContact(nom, null);
     }
 }
