@@ -1,11 +1,13 @@
+package contact;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContactDao implements IContactDao {
   List<Contact> contacts;
 
-  ContactDao() {
-    this.contacts = new ArrayList<Contact>();
+  public ContactDao() {
+    this.contacts = new ArrayList<>();
   }
 
   /**

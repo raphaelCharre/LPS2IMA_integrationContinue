@@ -1,9 +1,16 @@
+package contacttest;
+
 import org.easymock.Capture;
 import org.easymock.EasyMock;
 import org.easymock.Mock;
 import org.easymock.TestSubject;
 import org.junit.Test;
 import org.testng.Assert;
+
+import contact.Contact;
+import contact.ContactExistException;
+import contact.ContactService;
+import contact.IContactDao;
 
 public class MockFailTest extends MockTest {
   @TestSubject

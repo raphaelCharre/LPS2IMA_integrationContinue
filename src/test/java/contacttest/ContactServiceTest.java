@@ -1,4 +1,8 @@
+package contacttest;
 import org.junit.Test;
+
+import contact.ContactExistException;
+import contact.ContactService;
 
 public class ContactServiceTest {
   @Test(expected = IllegalArgumentException.class)

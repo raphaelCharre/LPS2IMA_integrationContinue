@@ -1,3 +1,4 @@
+package contacttest;
 import org.easymock.EasyMockRule;
 import org.easymock.EasyMockSupport;
 import org.junit.Rule;
